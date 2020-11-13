@@ -1,0 +1,131 @@
+form {
+    overflow: hidden;
+
+    input, select, textarea {
+        display: block;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 10px;
+        @include font(15,18);
+        @include poppins-regular;
+        width: 100%;
+        padding: 10px 20px;
+        border-bottom: 3px solid transparent;
+
+        &:focus {
+            outline: 0;
+            border-bottom-color: lighten(#005B94, 20%);
+        }
+    }
+
+    button {
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    textarea {
+        @include poppins-regular;
+    }
+
+    span.checkbox {
+        display: flex !important;
+        margin-bottom: 0px !important;
+
+        input[type="checkbox"] {
+            opacity: 0;
+            width: 0px;
+
+            + label::after {
+                content: none;
+            }
+
+            &:checked + label::after {
+                content: "";
+            }
+
+            &:focus + label::before,
+            &:checked + label::before {
+                background-color: #ffffff;
+            }
+        }
+
+        label {
+            position: relative;
+            margin-left: 24px;
+
+            &::before, &::after {
+                position: absolute;
+            }
+
+            &::before {
+                content: "";
+                display: inline-block;
+                top: 3px;
+                left: -24px;
+                height: 16px;
+                width: 16px;
+                border: 1px solid #ffffff;
+                border-radius: 4px;
+            }
+
+            &::after {
+                content: "";
+                display: inline-block;
+                left: -20px;
+                top: 7px;
+                height: 5px;
+                width: 9px;
+                border-left: 2px solid #222222;
+                border-bottom: 2px solid #222222;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+.btn {
+    display: inline-block;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+    letter-spacing: .0625em;
+    text-transform: uppercase;
+    padding: 12px 24px 14px;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    @include poppins-bold;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &.btn-blue {
+        background-color: var(--irBlue);
+        color: #ffffff;
+
+        &:focus,
+        &:hover {
+            background-color: darken(#005B94, 10%);
+        }
+    }
+
+    &.btn-black {
+        background-color: #717174;
+        color: #ffffff;
+
+        &:focus,
+        &:hover {
+            background-color: darken(#717174, 10%);
+        }
+    }
+
+    &.btn-white {
+        background-color: rgba(256,256,256,.5);
+        color: var(--irBlue);
+
+        &:focus,
+        &:hover {
+            background-color: darken(#717174, 10%);
+        }
+    }
+}

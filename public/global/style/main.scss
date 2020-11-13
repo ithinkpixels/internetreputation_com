@@ -1,0 +1,20 @@
+:root {
+    //--irBlue: #007cc7;
+    --irBlue: #005B94;
+    --darkBlue: #303745;
+    --orange: #f7931e;
+}
+
+$irBlue: var(--irBlue);
+$darkBlue: var(--darkBlue);
+$orange: var(--orange);
+
+@import 'reset';
+@import 'grid';
+@import 'typography';
+@import 'form';
+@import 'layout';
+
+.hidden {
+    display: none;
+}

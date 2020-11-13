@@ -1,0 +1,185 @@
+/* ------------[ TYPOGRAPHY ]------------ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700;900&display=swap');
+
+@function calculateRem($size) {
+    $remSize: ($size)/16;
+    @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+    font-size: ($size)+px;
+    font-size: calculateRem($size);
+}
+
+@mixin lineHeightSize($size) {
+    line-height: ($size)+px;
+    line-height: calculateRem($size);
+}
+
+@mixin font($fontsize,$lineheight) {
+    @include fontSize($fontsize);
+    @include lineHeightSize($lineheight);
+}
+
+@mixin poppins-thin {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+@mixin poppins-light {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+@mixin poppins-regular {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+@mixin poppins-bold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@mixin poppins-black {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+h1 {
+    @include poppins-bold;
+    @include font(38,42);
+}
+
+h2 {
+    @include poppins-bold;
+    @include font(30,36);
+    position: relative;
+    padding-bottom: 40px;
+    margin-bottom: 0;
+    color: #303745;
+
+    &::after {
+        content: "\00a0 ";
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 88px;
+        height: 2px;
+        background-color: var(--irBlue);
+    }
+
+    &.centered::after {
+        left: calc(50% - 44px);
+    }
+
+    span {
+        display: block;
+        text-transform: uppercase;
+        margin-top: 10px;
+    }
+}
+
+h3 {
+    @include poppins-bold;
+    @include font(22,28);
+    color: #303745;
+    margin-bottom: 1rem;
+
+    &.lead {
+        @include font(26,30);
+        color: var(--irBlue);
+    }
+
+    &.line {
+        position: relative;
+        padding-bottom: 40px;
+
+        &::after {
+            content: "\00a0 ";
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 88px;
+            height: 2px;
+            background-color: var(--irBlue);
+        }
+
+        &.centered::after {
+            left: calc(50% - 44px);
+        }
+    }
+}
+
+h4 {
+    @include poppins-bold;
+    @include font(18,22);
+}
+
+p {
+    @include poppins-regular;
+    @include font(15,26);
+    margin-bottom: 1rem;
+    color: #222222;
+
+    &.strong {
+        @include poppins-bold;
+        text-transform: uppercase;
+        margin-top: 28px;
+    }
+}
+
+a {
+    @include poppins-regular;
+    color: var(--irBlue);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+        color: #222222;
+    }
+}
+
+.centered {
+    text-align: center;
+}
+
+button {
+    @include font(16, 18);
+
+    &.btn-lg {
+        display: block;
+        margin: 22px auto 0;
+        @include font(25, 30);
+    }
+}
+
+.footer {
+    a {
+        color: #ada7a7;
+
+        &:hover {
+            color: #ffffff;
+        }
+    }
+
+    button.link {
+        background-color: transparent;
+        @include poppins-regular;
+        color: #ada7a7;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+
+        &:hover {
+            color: #ffffff;
+        }
+    }
+}
+
+/* ------------[ /TYPOGRAPHY ]------------ */
